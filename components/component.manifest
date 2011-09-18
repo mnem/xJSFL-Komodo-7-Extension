@@ -1,0 +1,3 @@
+contract	@activestate.com/koLanguage?language=JSFL;1 {d7088ba0-909a-40e9-9d01-b90b12abd73c}
+category	komodo-language								JSFL										@activestate.com/koLanguage?language=JSFL;1
+component	{d7088ba0-909a-40e9-9d01-b90b12abd73c}		koJSFL_UDL_Language.py

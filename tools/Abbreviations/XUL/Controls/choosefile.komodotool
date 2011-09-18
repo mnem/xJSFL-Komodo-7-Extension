@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "choosefile", 
+  "value": [
+    "<choosefile class=\"control\" id=\"[[%tabstop:id]]\" literal=\"[[%tabstop:false]]\" pathtype=\"[[%tabstop:absolute]]\" required=\"[[%tabstop:true]]\" type=\"[[%tabstop:open]]\" width=\"[[%tabstop:]]\" size=\"[[%tabstop:]]\" flex=\"[[%tabstop:1]]\" tabindex=\"!@#_currentPos!@#_anchor\" />[[%tabstop:]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

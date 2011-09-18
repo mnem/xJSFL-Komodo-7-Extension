@@ -1,0 +1,18 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "listbox", 
+  "value": [
+    "<listbox class=\"control\" id=\"[[%tabstop:id]]\" width=\"[[%tabstop:200]]\" rows=\"[[%tabstop:6]]\" flex=\"[[%tabstop:1]]\" tabindex=\"[[%tabstop:]]\">", 
+    "\t<listitem label=\"[[%tabstop1:Item 1]]\" value=\"[[%tabstop1]]\" selected=\"true\" />", 
+    "\t<listitem label=\"[[%tabstop2:Item 2]]\" value=\"[[%tabstop2]]\" selected=\"\" />", 
+    "\t<listitem label=\"[[%tabstop3:Item 3]]\" value=\"[[%tabstop3]]\" selected=\"\" />", 
+    "\t<listitem label=\"[[%tabstop4:Item 4]]\" value=\"[[%tabstop4]]\" selected=\"\" />", 
+    "\t<listitem label=\"[[%tabstop5:Item 5]]\" value=\"[[%tabstop5]]\" selected=\"\" />", 
+    "\t[[%tabstop:]]!@#_currentPos!@#_anchor", 
+    "</listbox>"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

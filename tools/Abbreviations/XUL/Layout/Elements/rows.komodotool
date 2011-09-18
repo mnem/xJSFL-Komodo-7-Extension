@@ -1,0 +1,15 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "rows", 
+  "value": [
+    "<rows>", 
+    "", 
+    "\t[[%tabstop:ROW!@#_currentPos!@#_anchor]]", 
+    "\t", 
+    "</rows>"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

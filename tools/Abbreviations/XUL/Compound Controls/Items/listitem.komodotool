@@ -1,0 +1,12 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "listitem", 
+  "value": [
+    "<listitem label=\"[[%tabstop1:Item!@#_currentPos!@#_anchor]]\" value=\"[[%tabstop1]]\" selected=\"\" />", 
+    "[[%tabstop:]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

@@ -1,0 +1,14 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "try", 
+  "value": [
+    "try", 
+    "{\n\t!@#_currentPos!@#_anchor[[%tabstop:// code to try]]\n}", 
+    "catch(err)", 
+    "{\n\t[[%tabstop:// do something with error]]\n}"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

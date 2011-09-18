@@ -1,0 +1,12 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "radio", 
+  "value": [
+    "<radio label=\"[[%tabstop1:label]]\" selected=\"\" value=\"[[%tabstop1]]\" acceskey=\"\" />", 
+    "[[%tabstop:!@#_currentPos!@#_anchor]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

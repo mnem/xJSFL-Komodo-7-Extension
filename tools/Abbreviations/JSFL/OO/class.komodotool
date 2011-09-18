@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "class", 
+  "value": [
+    "// ------------------------------------------------------------------------------------------------\n// Constructor\n\n\t/**\n\t * [[%tabstop1:Class]] class\n\t * @param\t{Value}\t\t[[%tabstop2:param]]\n\t * @returns\t{[[%tabstop1]]}\tA new [[%tabstop1]] instance\n\t */\n\tfunction [[%tabstop1]]([[%tabstop2]])\n\t{\n\t\tthis.[[%tabstop2]] = [[%tabstop2]];\n\t\t[[%tabstop://Constructor code here...]]\n\t}\n\t\n// ------------------------------------------------------------------------------------------------\n// Class properties\n\n\t[[%tabstop1]].toString = function()\n\t{\n\t\treturn '[class [[%tabstop1]]]';\n\t}\n\t\n// ------------------------------------------------------------------------------------------------\n// Prototype\n\n\t[[%tabstop1]].prototype =\n\t{\n\t\t// --------------------------------------------------------------------------------\n\t\t// properties\n\t\t\t\n\t\t\t[[%tabstop2]]:null,\n\t\t\t\n\t\t\t[[%tabstop:// instance properties...]]\n\t\t\t\n\t\t\n\t\t// --------------------------------------------------------------------------------\n\t\t// methods\n\t\t\n\t\t\t[[%tabstop:// public methods...]]\n\t\t\t\n\t\t\t\n\t\t// --------------------------------------------------------------------------------\n\t\t// utilities\n\t\t\t\n\t\t\ttoString:function()\n\t\t\t{\n\t\t\t\treturn '[object [[%tabstop1]] [[%tabstop2]]=\"' +[[%tabstop2]]+ '\"]';\n\t\t\t}\n\t}\n\t\n// ------------------------------------------------------------------------------------------------\n// register class with xjsfl\n\n\txjsfl.classes.register('[[%tabstop1]]', [[%tabstop1]]);\n\t\n\t!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "false", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

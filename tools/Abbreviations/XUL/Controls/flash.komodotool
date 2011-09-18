@@ -1,0 +1,19 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "flash", 
+  "value": [
+    "<element template=\"flash\">", 
+    "\t<flash class=\"control\" id=\"[[%tabstop:id]]\" src=\"[[%tabstop:path/to/file.swf]]\" width=\"[[%tabstop:500]]\" height=\"[[%tabstop:250]]\" />", 
+    "\t<property id=\"[[%tabstop:property1]]\" />", 
+    "\t<property id=\"[[%tabstop:property2]]\" />", 
+    "\t<property id=\"[[%tabstop:property3]]\" />", 
+    "\t<property id=\"[[%tabstop:property4]]\" />", 
+    "\t<property id=\"[[%tabstop:property5]]\" />", 
+    "</element>[[%tabstop:!@#_currentPos!@#_anchor]]", 
+    ""
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

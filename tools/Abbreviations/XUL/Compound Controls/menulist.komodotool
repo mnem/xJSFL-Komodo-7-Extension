@@ -1,0 +1,18 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "menulist", 
+  "value": [
+    "<menulist class=\"control\" id=\"[[%tabstop:id]]\" width=\"[[%tabstop:200]]\" editable=\"[[%tabstop:false]]\" flex=\"[[%tabstop:1]]\" tabindex=\"[[%tabstop:]]\">", 
+    "\t<menupop class=\"control\">", 
+    "\t\t<menuitem label=\"[[%tabstop1:Item 1]]\" value=\"[[%tabstop1]]\" selected=\"\" />", 
+    "\t\t<menuitem label=\"[[%tabstop2:Item 2]]\" value=\"[[%tabstop2]]\" selected=\"\" />", 
+    "\t\t<menuitem label=\"[[%tabstop3:Item 3]]\" value=\"[[%tabstop3]]\" selected=\"\" />", 
+    "\t\t[[%tabstop:]]", 
+    "\t</menupop>", 
+    "</menulist>!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

@@ -1,0 +1,16 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "radiogroup", 
+  "value": [
+    "<radiogroup class=\"control\" id=\"[[%tabstop:id]]\" groupbox=\"[[%tabstop:true]]\" tabindex=\"!@#_currentPos!@#_anchor\">", 
+    "\t<radio label=\"[[%tabstop1:label 1]]\" selected=\"\" value=\"[[%tabstop1]]\" acceskey=\"\" />", 
+    "\t<radio label=\"[[%tabstop2:label 2]]\" selected=\"\" value=\"[[%tabstop2]]\" acceskey=\"\" />", 
+    "\t<radio label=\"[[%tabstop3:label 3]]\" selected=\"\" value=\"[[%tabstop3]]\" acceskey=\"\" />", 
+    "\t[[%tabstop:]]", 
+    "</radiogroup>"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

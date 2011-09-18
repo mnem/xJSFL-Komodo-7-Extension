@@ -1,0 +1,952 @@
+diff --git a/apicatalogs/jsfl.cix b/apicatalogs/jsfl.cix
+index 1802f1b..d9a305f 100644
+--- a/apicatalogs/jsfl.cix
++++ b/apicatalogs/jsfl.cix
+@@ -1,19 +1,18 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <codeintel version="2.0" name="JSFL" description="Adobe Flash JSAPI (CS4)">
+- description="JavaScript framework for web development" name="Prototype" version="2.0"
+-	<file lang="JavaScript" path="javascript.cix" doc="JSFL API for Flash">
+-		<scope name="*" ilk="blob" lang="JavaScript">
++	<file lang="JSFL" doc="JSFL API for Flash" path="JSFL">
++		<scope name="*" ilk="blob" lang="JSFL">
+ 			<!--
+ 
+ 				Top-level variables
+ 
+ 			-->
+-			<variables name="flash" citdl="Flash"/>
+-			<variables name="fl" citdl="Flash"/>
+-			<variables name="App" citdl="Flash"/>
+-			<variables name="app" citdl="Flash"/>
+-			<variables name="window" citdl="Window"/>
+-			<variables name="document" citdl="Document"/>
++			<variable name="flash" citdl="Flash"/>
++			<variable name="fl" citdl="Flash"/>
++			<variable name="App" citdl="Flash"/>
++			<variable name="app" citdl="Flash"/>
++			<variable name="window" citdl="Window"/>
++			<variable name="document" citdl="Document"/>
+ 			<!--
+ 
+ 				Top-level functions
+diff --git a/build/JSFL/lexers/JSFL.lexres b/build/JSFL/lexers/JSFL.lexres
+deleted file mode 100644
+index 7d99b22..0000000
+--- a/build/JSFL/lexers/JSFL.lexres
++++ /dev/null
+@@ -1,421 +0,0 @@
+-1:lexer resource
+-2:1
+-3:1
+-4:0
+-48:1:0:0
+-11:4
+-12:JSFL
+-13
+-14:0:0
+-16:0:5
+-15:0:13
+-14:1:15
+-16:1:21
+-15:1:0
+-14:2:22
+-16:2:29
+-15:2:1
+-14:3:31
+-16:3:46
+-15:3:0
+-14:4:49
+-16:4:56
+-15:4:0
+-17:6
+-18:0
+-19:13
+-11:4
+-12:html
+-43
+-18:2
+-19:1
+-11:10
+-12:JavaScript
+-43
+-11:372
+-12:abstract as break case catch class const continue debugger default delete d
+-12:o else enum export extends false finally for function get goto if implement
+-12:s import in include instanceof interface is namespace native new null packa
+-12:ge private protected public return set short super switch synchronized this
+-12: throw throws transient true try typeof use var void volatile while with
+-21
+-22:28:27
+-23
+-24:22:8
+-25:5
+-26:0
+-27:2:29
+-11:11
+-12:) ++ -- ] }
+-28
+-31:0
+-26:1
+-27:2:27
+-11:82
+-12:class false function get include null private protected public set super th
+-12:is true
+-29
+-31:1
+-26:2
+-27:0:22
+-31:2
+-26:3
+-27:0:23
+-31:3
+-26:4
+-27:0:24
+-31:4
+-30:29:1
+-30:27:1
+-11:1
+-12:{
+-20:0:29:1
+-11:1
+-12:}
+-20:1:29:-1
+-11:3
+-12:{{{
+-20:2:40:1
+-11:3
+-12:}}}
+-20:3:40:-1
+-11:3
+-12:{{{
+-20:4:41:1
+-11:3
+-12:}}}
+-20:5:41:-1
+-32:5
+-33:0:23:3
+-33:1:24:2
+-33:2:22:1
+-33:3:29:9
+-33:4:30:8
+-34:14
+-35:1
+-11:4
+-12:<!--
+-36:1:22:23:0:-1:0:0:0
+-40
+-11:3
+-12:-->
+-36:1:22:23:0:-1:0:0:0
+-40
+-11:9
+-12:<![CDATA[
+-36:1:22:23:0:-1:0:0:0
+-40
+-11:3
+-12:]]>
+-36:1:22:23:0:-1:0:0:0
+-40
+-11:2
+-12:/*
+-36:1:22:-1:0:2:0:0:0
+-40
+-11:2
+-12://
+-36:1:22:-1:0:3:0:0:0
+-40
+-11:10
+-12:[\s	\r\n]+
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:17
+-12:0[Xx][0-9a-fA-F]+
+-36:2:22:25:0:-1:0:0:0
+-40
+-11:10
+-12:[-+]?[0-9]
+-36:2:22:-1:0:4:0:0:0
+-40
+-11:4
+-12:\.\d
+-36:2:22:-1:0:5:0:0:0
+-40
+-11:6
+-12:[-+]\.
+-36:2:22:-1:0:5:0:0:0
+-40
+-11:1
+-12:"
+-36:1:22:-1:0:6:0:0:0
+-40
+-11:1
+-12:'
+-36:1:22:-1:0:7:0:0:0
+-40
+-11:1
+-12:/
+-36:1:22:-1:0:8:1:0:0
+-40
+-11:32
+-12:[$\w\x80-\xff][$\w\x80-\xff\d_]*
+-36:2:22:28:0:-1:0:0:0
+-40
+-11:41
+-12:[!\#%&\(\)\*\+,-\.\/:;<=>\?@\[\]\^\{\}~|]
+-36:2:22:-1:1:9:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:22:-1:0:-1:0:0:0
+-41
+-35:2
+-11:2
+-12:*/
+-36:1:-1:24:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:24:-1:0:-1:0:0:0
+-41
+-35:3
+-11:6
+-12:[\r\n]
+-36:2:23:-1:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:23:-1:0:-1:0:0:0
+-41
+-35:4
+-11:1
+-12:.
+-36:1:-1:-1:0:5:0:0:0
+-40
+-11:4
+-12:[\d]
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:9
+-12:[Ee][-+]?
+-36:2:-1:-1:0:12:0:0:0
+-40
+-11:1
+-12:.
+-36:2:25:-1:1:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:25:-1:0:-1:0:0:0
+-41
+-35:5
+-11:4
+-12:[\d]
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:9
+-12:[Ee][-+]?
+-36:2:-1:-1:0:12:0:0:0
+-40
+-11:1
+-12:.
+-36:1:25:29:0:1:0:0:0
+-40
+-11:1
+-12:.
+-36:2:25:-1:1:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:25:-1:0:-1:0:0:0
+-41
+-35:6
+-11:1
+-12:"
+-36:1:-1:26:0:1:0:0:0
+-40
+-11:8
+-12:\\[\r\n]
+-36:2:-1:26:0:10:0:0:0
+-40
+-11:3
+-12:\\.
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:1
+-12:$
+-36:2:26:-1:0:1:0:0:0
+-40
+-11:2
+-12:\r
+-36:1:26:-1:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:26:-1:0:-1:0:0:0
+-41
+-35:7
+-11:1
+-12:'
+-36:1:-1:26:0:1:0:0:0
+-40
+-11:8
+-12:\\[\r\n]
+-36:2:-1:26:0:11:0:0:0
+-40
+-11:3
+-12:\\.
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:1
+-12:$
+-36:2:26:-1:0:1:0:0:0
+-40
+-11:2
+-12:\r
+-36:1:26:-1:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:26:-1:0:-1:0:0:0
+-41
+-35:8
+-11:3
+-12:\\.
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:7
+-12:\/[\w]*
+-36:2:-1:30:0:1:0:0:0
+-40
+-11:6
+-12:[\r\n]
+-36:2:-1:30:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:30:-1:0:-1:0:0:0
+-41
+-35:9
+-11:92
+-12:[!\#%&\(\)\*\+,-\.\/:;<=>\?@\[\]\^\{\}~|](?:(?![!\#%&\(\)\*\+,-\.\/:;<=>\?@
+-12:\[\]\^\{\}~|])|$)
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:6
+-12:>>>?=?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:2
+-12:>=
+-36:1:-1:29:0:1:0:0:0
+-40
+-11:4
+-12:!==?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:5
+-12:&&?=?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:5
+-12:<<?=?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:4
+-12:===?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:6
+-12:-[-=>]
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:7
+-12:\.\.\.?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:7
+-12:\^\^?=?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:7
+-12:\|\|?=?
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:9
+-12:[%*+\/>]=
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:2
+-12:::
+-36:1:-1:29:0:1:0:0:0
+-40
+-11:2
+-12:++
+-36:1:-1:29:0:1:0:0:0
+-40
+-11:41
+-12:[!\#%&\(\)\*\+,-\.\/:;<=>\?@\[\]\^\{\}~|]
+-36:2:-1:29:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:29:-1:0:-1:0:0:0
+-41
+-35:10
+-11:8
+-12:\\[\r\n]
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:3
+-12:\\.
+-36:2:-1:-1:0:6:0:0:0
+-40
+-11:1
+-12:"
+-36:1:-1:26:0:1:0:0:0
+-40
+-11:1
+-12:.
+-36:2:-1:-1:0:6:0:0:0
+-40
+-11:2
+-12:^$
+-36:2:26:-1:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:26:-1:0:-1:0:0:0
+-41
+-35:11
+-11:8
+-12:\\[\r\n]
+-36:2:-1:-1:0:-1:0:0:0
+-40
+-11:3
+-12:\\.
+-36:2:-1:-1:0:7:0:0:0
+-40
+-11:1
+-12:'
+-36:1:-1:26:0:1:0:0:0
+-40
+-11:1
+-12:.
+-36:2:-1:-1:0:7:0:0:0
+-40
+-11:2
+-12:^$
+-36:2:26:-1:0:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:26:-1:0:-1:0:0:0
+-41
+-35:12
+-11:5
+-12:[^\d]
+-36:2:25:-1:1:1:0:0:0
+-40
+-11:4
+-12:NULL
+-36:4:25:-1:0:-1:0:0:0
+-41
+-35:13
+-11:1
+-12:.
+-36:2:-1:-1:1:1:0:0:0
+-40
+-37:2
+diff --git a/chrome.manifest b/chrome.manifest
+index 0dddba2..0f4daf4 100644
+--- a/chrome.manifest
++++ b/chrome.manifest
+@@ -1,2 +1,4 @@
+-content xjsfl content/ xpcnativewrappers=yes
++content xjsfl content/
+ overlay chrome://komodo/content/komodo.xul chrome://xjsfl/content/overlay.xul
++
++manifest components/component.manifest
+diff --git a/components/koJSFL_UDL_Language.py b/components/koJSFL_UDL_Language.py
+index a9ce976..90bf23e 100644
+--- a/components/koJSFL_UDL_Language.py
++++ b/components/koJSFL_UDL_Language.py
+@@ -1,47 +1,42 @@
+ # Komodo JSFL language service.
+ 
++from os.path import abspath, dirname, join
++import sys
+ import logging
+-from koUDLLanguageBase import KoUDLLanguage
+-
++import komodo
+ 
+ log = logging.getLogger("koJSFLLanguage")
+ #log.setLevel(logging.DEBUG)
+ 
+-
+ def registerLanguage(registry):
+     log.debug("Registering language JSFL")
+     registry.registerLanguage(KoJSFLLanguage())
+ 
++# Hack start: add Komodo components directory to the sys.path, so we can import
++#             and then inherit from koJavaScriptLanguage.
++comppath = join(dirname(dirname(dirname(abspath(komodo.__file__)))), "components")
++sys.path.append(comppath)
++from koJavaScriptLanguage import koJavaScriptLanguage
++sys.path.pop() # remove comppath
++# Hack end:
+ 
+-class KoJSFLLanguage(KoUDLLanguage):
++class KoJSFLLanguage(koJavaScriptLanguage):
+     name = "JSFL"
+-    lexresLangName = "JSFL"
+     _reg_desc_ = "%s Language" % name
+     _reg_contractid_ = "@activestate.com/koLanguage?language=%s;1" % name
+     _reg_clsid_ = "d7088ba0-909a-40e9-9d01-b90b12abd73c"
++    _reg_categories_ = [("komodo-language", name)]
+     defaultExtension = '.jsfl'
+ 
+-    #TODO: Update 'lang_from_udl_family' as appropriate for your
+-    #      lexer definition. There are four UDL language families:
+-    #           M (markup), i.e. HTML or XML
+-    #           CSL (client-side language), e.g. JavaScript
+-    #           SSL (server-side language), e.g. Perl, PHP, Python
+-    #           TPL (template language), e.g. RHTML, Django, Smarty
+-    #      'lang_from_udl_family' maps each UDL family code (M,
+-    #      CSL, ...) to the sub-langauge name in your language.
+-    #      Some examples:
+-    #        lang_from_udl_family = {   # A PHP file can contain
+-    #           'M': 'HTML',            #   HTML
+-    #           'SSL': 'PHP',           #   PHP
+-    #           'CSL': 'JavaScript',    #   JavaScript
+-    #        }
+-    #        lang_from_udl_family = {   # An RHTML file can contain
+-    #           'M': 'HTML',            #   HTML
+-    #           'SSL': 'Ruby',          #   Ruby
+-    #           'CSL': 'JavaScript',    #   JavaScript
+-    #           'TPL': 'RHTML',         #   RHTML template code
+-    #        }
+-    #        lang_from_udl_family = {   # A plain XML can just contain
+-    #           'M': 'XML',             #   XML
+-    #        }
+-    lang_from_udl_family = {}
++    # Hack start: make a Komodo langinfo entry.
++    def __init__(self, *args, **kwargs):
++        import langinfo
++        langdb = langinfo.get_default_database()
++        langdb._load_dir(join(dirname(dirname(abspath(__file__))), "pylib"))
++        koJavaScriptLanguage.__init__(self, *args, **kwargs)
++    # Hack end:
++
++    # Hack start: add styling entries - to give it JS coloring.
++        import styles
++        styles.StateMap[self.name] = styles.StateMap['JavaScript'].copy()
++    # Hack end:
+diff --git a/install.rdf b/install.rdf
+index d8add0d..5e8241a 100644
+--- a/install.rdf
++++ b/install.rdf
+@@ -15,7 +15,7 @@
+                 <!-- Komodo IDE's uuid -->
+                 <em:id>{36E66FA0-F259-11D9-850E-000D935D3368}</em:id>
+                 <em:minVersion>5.1</em:minVersion>
+-                <em:maxVersion>6.*</em:maxVersion>
++                <em:maxVersion>7.*</em:maxVersion>
+             </Description>
+         </em:targetApplication>
+         <em:targetApplication>
+@@ -23,7 +23,7 @@
+                 <!-- Komodo Edit's uuid -->
+                 <em:id>{b1042fb5-9e9c-11db-b107-000d935d3368}</em:id>
+                 <em:minVersion>5.1</em:minVersion>
+-                <em:maxVersion>6.*</em:maxVersion>
++                <em:maxVersion>7.*</em:maxVersion>
+             </Description>
+         </em:targetApplication>
+     </Description>
+diff --git a/udl/ecmascript_262.udl b/udl/ecmascript_262.udl
+deleted file mode 100644
+index fb3b3dd..0000000
+--- a/udl/ecmascript_262.udl
++++ /dev/null
+@@ -1,250 +0,0 @@
+-# Main ECMAScript-262 definition
+-# 
+-# ***** BEGIN LICENSE BLOCK *****
+-# Version: MPL 1.1/GPL 2.0/LGPL 2.1
+-# 
+-# The contents of this file are subject to the Mozilla Public License
+-# Version 1.1 (the "License"); you may not use this file except in
+-# compliance with the License. You may obtain a copy of the License at
+-# http://www.mozilla.org/MPL/
+-# 
+-# Software distributed under the License is distributed on an "AS IS"
+-# basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+-# License for the specific language governing rights and limitations
+-# under the License.
+-# 
+-# The Original Code is Komodo code.
+-# 
+-# The Initial Developer of the Original Code is ActiveState Software Inc.
+-# Portions created by ActiveState Software Inc are Copyright (C) 2000-2007
+-# ActiveState Software Inc. All Rights Reserved.
+-# 
+-# Contributor(s):
+-#   ActiveState Software Inc
+-# 
+-# Alternatively, the contents of this file may be used under the terms of
+-# either the GNU General Public License Version 2 or later (the "GPL"), or
+-# the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+-# in which case the provisions of the GPL or the LGPL are applicable instead
+-# of those above. If you wish to allow use of your version of this file only
+-# under the terms of either the GPL or the LGPL, and not to allow others to
+-# use your version of this file under the terms of the MPL, indicate your
+-# decision by deleting the provisions above and replace them with the notice
+-# and other provisions required by the GPL or the LGPL. If you do not delete
+-# the provisions above, a recipient may use your version of this file under
+-# the terms of any one of the MPL, the GPL or the LGPL.
+-# 
+-# ***** END LICENSE BLOCK *****
+-# Author(s):
+-#   Eric Promislow <ericp@activestate.com>
+-#
+-# Used by JavaScript, ActionScript, and other JS-like languages
+-
+-# We have to specify the min and max styles we'll be referring to
+-
+-start_style CSL_DEFAULT
+-end_style CSL_REGEX
+-
+-# If the language has keywords, specify which style needs to be transformed
+-
+-keyword_style CSL_IDENTIFIER => CSL_WORD
+-
+-# Some info on the styles we're using here
+-
+-pattern NMSTART = '$\w\x80-\xff'   # inside cset
+-pattern CS = '$NMSTART\d_'   # inside cset
+-pattern WS = '\s\t\r\n'           # inside cset
+-pattern OP = '!\#%&\(\)\*\+,-\.\/:;<=>\?@\[\]\^\{\}~|'
+-pattern NAMESEQ = '[$NMSTART][$CS]*'
+-
+-# We need to do some processing to determine when a / in default state 
+-# starts a regex, and when it starts an RE
+-# Same with /<\w/ for e4x unquoted xml strings
+-# -- in fact, it's the same as for regexes, as both denote an object
+-
+-initial IN_CSL_DEFAULT
+-
+-state IN_CSL_DEFAULT:
+-
+-# Just ignore these things -- they're here for ancient browsers
+-
+-'<!--' : paint(upto, CSL_DEFAULT), paint(include, CSL_COMMENT)
+-'-->' : paint(upto, CSL_DEFAULT), paint(include, CSL_COMMENT)
+-'<![CDATA[' : paint(upto, CSL_DEFAULT), paint(include, CSL_COMMENT)
+-']]>' : paint(upto, CSL_DEFAULT), paint(include, CSL_COMMENT)
+-
+-'/*' : paint(upto, CSL_DEFAULT), => IN_CSL_COMMENT_1
+-
+-'//' : paint(upto, CSL_DEFAULT), => IN_CSL_COMMENT_LINE_1
+-
+-/[$WS]+/  : #stay
+-
+-# We have to lex numbers in states in case we reach EOF right after the
+-# "e" in a floating pt constant, for example
+-
+-/0[Xx][0-9a-fA-F]+/ : paint(upto, CSL_DEFAULT), paint(include, CSL_NUMBER)
+-/[-+]?[0-9]/ : paint(upto, CSL_DEFAULT), => IN_CSL_NUMBER_1
+-
+-# A "." can start a number only if it doesn't follow a
+-# name, many keywords, string, regex, number, or a few 
+-# closing operators.
+-
+-/\.\d/ : paint(upto, CSL_DEFAULT), => IN_CSL_NUMBER_2
+-/[-+]\./ : paint(upto, CSL_DEFAULT), => IN_CSL_NUMBER_2
+-
+-'"' : paint(upto, CSL_DEFAULT), => IN_CSL_DSTRING
+-'\'' : paint(upto, CSL_DEFAULT), => IN_CSL_SSTRING
+-
+-# Conditional check to see if it's preferred
+-'/' token_check : paint(upto, CSL_DEFAULT), => IN_CSL_REGEX
+-
+-# '<' if token_check  : paint(upto, CSL_DEFAULT), => IN_CSL_XML # E4X stuff
+-
+-/$NAMESEQ/ : paint(upto, CSL_DEFAULT), paint(include, CSL_IDENTIFIER)
+-
+-# Now a bunch of operators
+-# Multi-char operators first
+-
+-/[$OP]/ : paint(upto, CSL_DEFAULT), redo, => IN_CSL_OP1
+-
+-################ Comments ################
+-
+-state IN_CSL_COMMENT_1 : 
+-'*/' : paint(include, CSL_COMMENTBLOCK), => IN_CSL_DEFAULT
+-
+-state IN_CSL_COMMENT_LINE_1:
+-/[\r\n]/ : paint(upto, CSL_COMMENT), => IN_CSL_DEFAULT
+-
+-################ Strings ################
+-
+-state IN_CSL_DSTRING:
+-'"' : paint(include, CSL_STRING), => IN_CSL_DEFAULT
+-/\\[\r\n]/ : paint(include, CSL_STRING), => IN_CSL_DSTRING_LINECONT
+-/\\./ : #stay, Don't miscount backslash at end
+-/$/ : paint(upto, CSL_STRING), => IN_CSL_DEFAULT
+-'\r' : paint(upto, CSL_STRING), => IN_CSL_DEFAULT
+-
+-# Work around the single-line match limit.
+-
+-state IN_CSL_DSTRING_LINECONT:
+-/\\[\r\n]/ : #stay
+-/\\./ : => IN_CSL_DSTRING
+-'"' : paint(include, CSL_STRING), => IN_CSL_DEFAULT
+-/./ : => IN_CSL_DSTRING
+-/^$/ : paint(upto, CSL_STRING), => IN_CSL_DEFAULT # End empty lines here
+-
+-state IN_CSL_SSTRING:
+-'\'' : paint(include, CSL_STRING), => IN_CSL_DEFAULT
+-/\\[\r\n]/ : paint(include, CSL_STRING), => IN_CSL_SSTRING_LINECONT
+-/\\./ : #
+-/$/ : paint(upto, CSL_STRING), => IN_CSL_DEFAULT
+-'\r' : paint(upto, CSL_STRING), => IN_CSL_DEFAULT # /$/ doesn't match here with pcre
+-
+-state IN_CSL_SSTRING_LINECONT:
+-/\\[\r\n]/ : #stay
+-/\\./ : => IN_CSL_SSTRING
+-"'" : paint(include, CSL_STRING), => IN_CSL_DEFAULT
+-/./ : => IN_CSL_SSTRING
+-/^$/ : paint(upto, CSL_STRING), => IN_CSL_DEFAULT # End empty lines here
+-
+-################ Numbers ################
+-
+-state IN_CSL_NUMBER_1 :
+-'.' : => IN_CSL_NUMBER_2
+-/[\d]/ : #stay
+-/[Ee][-+]?/ : => IN_CSL_NUMBER_3
+-/./ : paint(upto, CSL_NUMBER), redo, => IN_CSL_DEFAULT
+-
+-state IN_CSL_NUMBER_2:
+-/[\d]/ : #stay
+-/[Ee][-+]?/ : => IN_CSL_NUMBER_3
+-'.' : paint(upto, CSL_NUMBER), paint(include, CSL_OPERATOR),  => IN_CSL_DEFAULT
+-/./ : paint(upto, CSL_NUMBER), redo, => IN_CSL_DEFAULT
+-
+-state IN_CSL_NUMBER_3:
+-/[^\d]/ : paint(upto, CSL_NUMBER), redo, => IN_CSL_DEFAULT
+-
+-state IN_CSL_REGEX:
+-/\\./ : #stay
+-/\/[\w]*/ : paint(include, CSL_REGEX), => IN_CSL_DEFAULT
+-# JavaScript doesn't do x-type regexes, but here's how we'll do it in Perl:
+-#### /#[^\/]*/ : paint(upto, CSL_REGEX), paint(include, CSL_COMMENT) # stay
+-#### /[\r\n]/ : #stay
+-/[\r\n]/ : paint(include, CSL_REGEX), => IN_CSL_DEFAULT
+-
+-# If we're here, we've painted the previous part, and 
+-# just need to figure out which operator we have, doing
+-# greedy left-to-right matching ('+++' parses as /++/, /+/)
+-
+-state IN_CSL_OP1:
+-# Single-char operator -- all ops work as standalone chars
+-
+-/[$OP](?:(?![$OP])|$)/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-
+-# Otherwise look from longest to smallest
+-/>>>?=?/  : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-'>=' : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/!==?/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/&&?=?/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/<<?=?/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/===?/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/-[-=>]/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/\.\.\.?/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/\^\^?=?/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/\|\|?=?/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-/[%*+\/>]=/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-'::' : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-'++' : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-# The fallback
+-/[$OP]/ : paint(include, CSL_OPERATOR), => IN_CSL_DEFAULT
+-
+-################ End States ################
+-
+-# We might want to generalize this... by allowing named tokens.
+-# Currently we just wrap things with a token-check
+-
+-# How to avoid specifying too much:
+-
+-# Only reject list: accept all others
+-# Only accept list: reject everything else
+-# Only skip list: reject everything else, but 
+-# having only a set of skip items is redundant, as we'll end up rejecting
+-
+-# If a style has two of the lists, the missing one is the default
+-
+-# If a style has all three lists, anything else is rejected
+-
+-token_check:
+-CSL_OPERATOR: reject [")", "++", "--", "]", "}"]
+-
+-CSL_WORD: reject [class false function null private protected public super
+-this true get "include" set]
+-
+-# All other keywords prefer an RE
+-
+-CSL_DEFAULT: skip all
+-CSL_COMMENT: skip all
+-CSL_COMMENTBLOCK: skip all
+-
+-# Default is to reject / as the start of a regex if it follows
+-# an unhandled style
+-
+-#### CSL_IDENTIFIER: reject all
+-#### CSL_NUMBER: reject all
+-#### CSL_REGEX: reject all
+-#### CSL_STRING: reject all
+-
+-# Fold info tokens
+-
+-# Sometimes this should line up, when we're initializing an object.
+-# Hard to get this right without doing the same thing we do with
+-# Perl's notion of "variable indexer" vs. "operator".
+-
+-fold "{" CSL_OPERATOR +
+-fold "}" CSL_OPERATOR -
+-
+-fold "{{{" SSL_COMMENT +
+-fold "}}}" SSL_COMMENT -
+-
+-fold "{{{" SSL_COMMENTBLOCK +
+-fold "}}}" SSL_COMMENTBLOCK -
+diff --git a/udl/jsfl-lex.udl b/udl/jsfl-lex.udl
+deleted file mode 100644
+index 5b2e20a..0000000
+--- a/udl/jsfl-lex.udl
++++ /dev/null
+@@ -1,64 +0,0 @@
+-# JavaScript UDL definition
+-# 
+-# ***** BEGIN LICENSE BLOCK *****
+-# Version: MPL 1.1/GPL 2.0/LGPL 2.1
+-# 
+-# The contents of this file are subject to the Mozilla Public License
+-# Version 1.1 (the "License"); you may not use this file except in
+-# compliance with the License. You may obtain a copy of the License at
+-# http://www.mozilla.org/MPL/
+-# 
+-# Software distributed under the License is distributed on an "AS IS"
+-# basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+-# License for the specific language governing rights and limitations
+-# under the License.
+-# 
+-# The Original Code is Komodo code.
+-# 
+-# The Initial Developer of the Original Code is ActiveState Software Inc.
+-# Portions created by ActiveState Software Inc are Copyright (C) 2000-2007
+-# ActiveState Software Inc. All Rights Reserved.
+-# 
+-# Contributor(s):
+-#   ActiveState Software Inc
+-# 
+-# Alternatively, the contents of this file may be used under the terms of
+-# either the GNU General Public License Version 2 or later (the "GPL"), or
+-# the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+-# in which case the provisions of the GPL or the LGPL are applicable instead
+-# of those above. If you wish to allow use of your version of this file only
+-# under the terms of either the GPL or the LGPL, and not to allow others to
+-# use your version of this file under the terms of the MPL, indicate your
+-# decision by deleting the provisions above and replace them with the notice
+-# and other provisions required by the GPL or the LGPL. If you do not delete
+-# the provisions above, a recipient may use your version of this file under
+-# the terms of any one of the MPL, the GPL or the LGPL.
+-# 
+-# ***** END LICENSE BLOCK *****
+-# Author(s):
+-#   Eric Promislow <ericp@activestate.com>
+-
+-# Lexer description for javascript
+-
+-# First we need to tell the lexer a bit about this language
+-
+-family csl # client-side language
+-sublanguage JavaScript
+-
+-# Quote any keywords that collide with tpl's keywords:
+-# family keywords keyword_style pattern initial state paint redo
+-
+-# From http://www.mozilla.org/js/language/E262-3.pdf
+-
+-keywords [as break case catch class const continue default delete do else
+-export extends false finally for function if import in instanceof is 'namespace'
+-new null package private public return super switch this throw true try typeof
+-use var void while with
+-get "include" set
+-abstract debugger enum goto implements interface native protected short synchronized throws transient volatile
+-] 
+-# rows 1 - 4 - reserved
+-# row 5  - non-reserved
+-# row 6 - "future reserved"
+-
+-include "ecmascript_262.udl"
+diff --git a/udl/jsfl-mainlex.udl b/udl/jsfl-mainlex.udl
+deleted file mode 100644
+index 87bcec5..0000000
+--- a/udl/jsfl-mainlex.udl
++++ /dev/null
+@@ -1,53 +0,0 @@
+-# ***** BEGIN LICENSE BLOCK *****
+-# Version: MPL 1.1/GPL 2.0/LGPL 2.1
+-# 
+-# The contents of this file are subject to the Mozilla Public License
+-# Version 1.1 (the "License"); you may not use this file except in
+-# compliance with the License. You may obtain a copy of the License at
+-# http://www.mozilla.org/MPL/
+-# 
+-# Software distributed under the License is distributed on an "AS IS"
+-# basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+-# License for the specific language governing rights and limitations
+-# under the License.
+-# 
+-# The Original Code is Komodo code.
+-# 
+-# The Initial Developer of the Original Code is ActiveState Software Inc.
+-# Portions created by ActiveState Software Inc are Copyright (C) 2000-2007
+-# ActiveState Software Inc. All Rights Reserved.
+-# 
+-# Contributor(s):
+-#   ActiveState Software Inc
+-# 
+-# Alternatively, the contents of this file may be used under the terms of
+-# either the GNU General Public License Version 2 or later (the "GPL"), or
+-# the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+-# in which case the provisions of the GPL or the LGPL are applicable instead
+-# of those above. If you wish to allow use of your version of this file only
+-# under the terms of either the GPL or the LGPL, and not to allow others to
+-# use your version of this file under the terms of the MPL, indicate your
+-# decision by deleting the provisions above and replace them with the notice
+-# and other provisions required by the GPL or the LGPL. If you do not delete
+-# the provisions above, a recipient may use your version of this file under
+-# the terms of any one of the MPL, the GPL or the LGPL.
+-# 
+-# ***** END LICENSE BLOCK *****
+-
+-# UDL for standalone JavaScript files
+-# To build:
+-# python luddite.py compile udl/js-mainlex.udl -f --ext=.js [--guid, --skel needed]
+-# python luddite.py package javascript -f
+-# Open javascript_language-1.0.0-ko.xpi in Komodo, install, restart
+-
+-language JSFL
+-
+-include "jsfl-lex.udl"
+-
+-family markup
+-sublanguage html
+-
+-initial IN_M_DEFAULT
+-
+-state IN_M_DEFAULT:
+-/./ : redo, => IN_CSL_DEFAULT

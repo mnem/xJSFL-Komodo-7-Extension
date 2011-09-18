@@ -1,0 +1,2 @@
+content xjsfl jar:xjsfl.jar!/content/ xpcnativewrappers=yes
+overlay chrome://komodo/content/komodo.xul chrome://xjsfl/content/overlay.xul

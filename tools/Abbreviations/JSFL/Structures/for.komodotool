@@ -1,0 +1,15 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "for", 
+  "value": [
+    "for (var [[%tabstop1:i]] = !@#_currentPos!@#_anchor0; [[%tabstop1]] < [[%tabstop2:item]]s.length; [[%tabstop1]]++)", 
+    "{\n\tvar [[%tabstop2]] = [[%tabstop2]][[[%tabstop1]]];", 
+    "\t[[%tabstop:]]\n}", 
+    "", 
+    ""
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

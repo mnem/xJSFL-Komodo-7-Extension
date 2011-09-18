@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "textbox", 
+  "value": [
+    "<textbox class=\"control\" id=\"[[%tabstop:id]]\" multiline=\"[[%tabstop:false]]\" width=\"[[%tabstop:]]\"!@#_currentPos!@#_anchor value=\"[[%tabstop:]]\" prompt=\"[[%tabstop:]]\" maxlength=\"[[%tabstop:]]\" size=\"[[%tabstop:]]\" flex=\"[[%tabstop:1]]\" />[[%tabstop:]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

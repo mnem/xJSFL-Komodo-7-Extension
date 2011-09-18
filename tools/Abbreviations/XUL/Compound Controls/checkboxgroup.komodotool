@@ -1,0 +1,12 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "checkboxgroup", 
+  "value": [
+    "<vbox class=\"checkboxgroup\" groupbox=\"true\">\n\t<checkbox class=\"control\" id=\"[[%tabstop1:id]][0]\" label=\"[[%tabstop:Label 1]]\" checked=\"[[%tabstop2:true]]\" tabindex=\"\" acceskey=\"\" />\n\t<checkbox class=\"control\" id=\"[[%tabstop1]][1]\" label=\"[[%tabstop:Label 2]]\" checked=\"[[%tabstop2]]\" tabindex=\"\" acceskey=\"\" />\n\t<checkbox class=\"control\" id=\"[[%tabstop1]][2]\" label=\"[[%tabstop:Label 3]]\" checked=\"[[%tabstop2]]\" tabindex=\"\" acceskey=\"\" />", 
+    "\t[[%tabstop:]]\n</vbox>!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

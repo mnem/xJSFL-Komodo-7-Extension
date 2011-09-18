@@ -1,0 +1,27 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "switch", 
+  "value": [
+    "switch([[%tabst!@#_currentPos!@#_anchorop:condition]])", 
+    "{", 
+    "\tcase '[[%tabstop:case1]]':", 
+    "\t\t[[%tabstop://...]]", 
+    "\tbreak;", 
+    "\t", 
+    "\tcase '[[%tabstop:case2]]':", 
+    "\t\t[[%tabstop://...]]", 
+    "\tbreak;", 
+    "\t", 
+    "\tcase '[[%tabstop:case3]]':", 
+    "\t\t[[%tabstop://...]]", 
+    "\tbreak;", 
+    "\t", 
+    "\tdefault:", 
+    "\t\t[[%tabstop://...]]", 
+    "}"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

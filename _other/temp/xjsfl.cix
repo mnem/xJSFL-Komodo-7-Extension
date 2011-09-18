@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeintel name="xJSFL" description="xJSFL JavaScript library - version 1.0" version="2.0">
+	<file lang="JavaScript" path="">
+		<scope name="xJSFL" ilk="blob" lang="JavaScript">
+			<!--
+
+				Top-level variables
+
+			-->
+			<variable name="$" citdl="xJSFL" />
+			<variable name="trace" citdl="xJSFL.utils.trace" />
+			<!--
+
+				xJSFL
+
+			-->
+			<scope name="xJSFL" ilk="class">
+				<!--
+	
+					Constructor
+	
+				-->
+				<scope name="xJSFL" ilk="function" attributes="__ctor__" signature="xJSFL(arg &lt;String|Element|Array of Elements|Function|xJSFL&gt;, context &lt;Element|xJSFL&gt;):xJSFL" />
+				<!--
+	
+					Utils
+	
+				-->
+				<scope name="utils" ilk="class" >
+					<scope name="trace" ilk="function" returns="String" signature="trace(...values):String" />
+					<scope name="size" ilk="function" returns="Number" signature="size():Number" >
+						<variable name="callback" ilk="argument" citdl="Function" />
+					</scope>
+					<scope name="eq" ilk="function" returns="xJSFL" signature="eq(position):xJSFL">
+						<variable name="position" ilk="argument" citdl="Number" />
+					</scope>
+				</scope>
+				<!--
+	
+					Variables
+	
+				-->
+				<variable name="length" citdl="Number" />
+				<variable name="selector" citdl="String" />
+				<variable name="context" citdl="Element" />
+			</scope>
+			
+			
+			
+			<!--
+
+				Collection
+
+			-->
+			<scope name="Collection" ilk="class">
+				<!--
+	
+					Constructor
+	
+				-->
+				<scope name="Collection" ilk="function" attributes="__ctor__" signature="Collection(elements:Array)">
+					<variable name="elements" ilk="argument" citdl="Array" />
+				</scope>
+				
+				<variable name="length" citdl="Number" />
+				
+				<scope name="each" ilk="function" signature="each(callback:Function, arguments:Array)">
+					<variable name="callback" ilk="argument" citdl="Function" />
+					<variable name="arguments" ilk="argument" citdl="Array" />
+				</scope>
+				
+			</scope>
+			
+			<!--
+
+				ElementCollection
+
+			-->
+			<scope name="ElementCollection" ilk="class" classrefs="Collection">
+				<!--
+	
+					Constructor
+	
+				-->
+				<scope name="ElementCollection" ilk="function" attributes="__ctor__" signature="ElementCollection(elements:Array)">
+					<variable name="elements" ilk="argument" citdl="Array" />
+				</scope>
+				
+				<scope name="randomize" ilk="function" returns="ElementCollection" signature="randomize(properties:Object):self" doc="This methods does some funky stuff">
+					<variable name="properties" ilk="argument" citdl="Object" />
+				</scope>
+				
+			</scope>
+			
+		</scope>
+	</file>
+</codeintel>

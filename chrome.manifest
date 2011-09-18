@@ -1,0 +1,7 @@
+content		jsflpref								content/pref/
+content		xjsfl									content/
+
+overlay		chrome://komodo/content/komodo.xul		chrome://xjsfl/content/xjsfl.xul
+overlay		chrome://komodo/content/pref/pref.xul	chrome://xjsfl/content/pref/jsfl-pref.xul
+
+manifest	components/component.manifest

@@ -1,0 +1,24 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "grid", 
+  "value": [
+    "<grid>", 
+    "\t", 
+    "\t<columns>", 
+    "\t\t<column flex=\"[[%tabstop:1]]\" />", 
+    "\t\t<column flex=\"[[%tabstop:2]]\" />", 
+    "\t</columns>", 
+    "\t", 
+    "\t<rows id=\"[[%tabstop:id]]\" >", 
+    "\t", 
+    "\t\t[[%tabstop:ROW!@#_currentPos!@#_anchor]]", 
+    "\t\t", 
+    "\t</rows>", 
+    "\t", 
+    "</grid>"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

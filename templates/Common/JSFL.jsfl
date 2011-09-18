@@ -1,0 +1,1 @@
+xjsfl.init(this);

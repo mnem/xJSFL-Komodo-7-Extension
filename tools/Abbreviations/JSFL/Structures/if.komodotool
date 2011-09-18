@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "if", 
+  "value": [
+    "if([[%tabstop:condition]])\n{\n\t[[%tabstop:// do something]]\n}\nelse\n{\n\t[[%tabstop:// do something else!@#_currentPos!@#_anchor]]\n}"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

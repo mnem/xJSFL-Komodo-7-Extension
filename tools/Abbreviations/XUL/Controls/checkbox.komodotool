@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "checkbox", 
+  "value": [
+    "<checkbox class=\"control\" id=\"[[%tabstop:id]]\" label=\"[[%tabstop:Label]]\" checked=\"[[%tabstop:true]]\" tabindex=\"\" acceskey=\"!@#_currentPos!@#_anchor\" />[[%tabstop:]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

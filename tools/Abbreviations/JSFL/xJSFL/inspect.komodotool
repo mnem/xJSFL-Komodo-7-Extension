@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "inspect", 
+  "value": [
+    "Output.inspect([[%tabstop1:object]], [[%tabstop2:5]], '[[%tabstop3:Debug]]');\n\n[[%tabstop:]]!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

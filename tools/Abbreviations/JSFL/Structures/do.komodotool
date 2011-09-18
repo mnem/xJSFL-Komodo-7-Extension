@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "do", 
+  "value": [
+    "do\n{\n\t[[%tabstop:// something...]]\n}\nwhile([[%tabstop:condition]]);!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

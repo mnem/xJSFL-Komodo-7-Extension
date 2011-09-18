@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "",
+  "name": "method",
+  "value": [
+    "/**\n * Meth [[%tabstop1:method]]\n * @param\t{type}\t[[%tabstop2:param]]\n * @returns\t{type}\t\n */\n[[%tabstop1]]:function([[%tabstop2]])\n{\n\t[[%tabstop:]]\n}[[%tabstop:]]\n!@#_currentPos!@#_anchor"
+  ],
+  "set_selection": "false",
+  "version": "1.0.7",
+  "type": "snippet",
+  "indent_relative": "true"
+}

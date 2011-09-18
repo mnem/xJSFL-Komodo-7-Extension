@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "checkboxgroupitem", 
+  "value": [
+    "<checkbox class=\"control\" id=\"[[%tabstop:id]][[[%tabstop:index]]]\" label=\"[[%tabstop:Label]]\" checked=\"[[%tabstop:true]]\" tabindex=\"\" acceskey=\"\" />\n[[%tabstop:]]!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "false", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "false"
+}

@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "button", 
+  "value": [
+    "<button class=\"control\" id=\"[[%tabstop:id]]\" label=\"[[%tabstop:Label]]\" width=\"[[%tabstop:]]\" flex=\"[[%tabstop:1]]\" tabindex=\"\" acceskey=\"!@#_currentPos!@#_anchor\" />[[%tabstop:]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

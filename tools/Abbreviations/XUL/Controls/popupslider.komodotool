@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "popupslider", 
+  "value": [
+    "!@#_currentPos!@#_anchor<popupslider class=\"control\" id=\"[[%tabstop:value]]\" value=\"[[%tabstop:0]]\" minvalue=\"[[%tabstop:0]]\" maxvalue=\"[[%tabstop:100]]\" orientation=\"[[%tabstop:horz]]\" width=\"[[%tabstop:60]]\" flex=\"[[%tabstop:1]]\" tabindex=\"[[%tabstop:]]\" />[[%tabstop:]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

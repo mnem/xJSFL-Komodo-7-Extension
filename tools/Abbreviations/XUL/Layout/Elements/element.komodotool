@@ -1,0 +1,13 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "element", 
+  "value": [
+    "<element!@#_currentPos!@#_anchor>", 
+    "\t[[%tabstop:CONTROL]]", 
+    "</element>"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

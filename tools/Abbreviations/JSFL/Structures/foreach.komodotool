@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "foreach", 
+  "value": [
+    "for each(var [[%tabstop1:name]] in [[%tabstop2:object]])\n{\n\t[[%tabstop:]]\n}!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

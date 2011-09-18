@@ -1,0 +1,12 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "menuitem", 
+  "value": [
+    "<menuitem label=\"[[%tabstop:Item]]\" value=\"[[%tabstop:1]]\" selected=\"\" />", 
+    "[[%tabstop:!@#_currentPos!@#_anchor]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

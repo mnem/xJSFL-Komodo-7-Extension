@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="f3caa343-5df2-4d55-bf65-fad1d8e6df3f" kpf_version="5" name="xJSFL Extension (v7).komodoproject">
+<file id="6c91eb1a-49df-4a31-bc70-dba092d5b365" idref="02c60a32-4fff-4f10-92f8-67c2f5137a14" name="setup.xul" url="_prj_internal_/setup.xul">
+</file>
+<folder id="02c60a32-4fff-4f10-92f8-67c2f5137a14" idref="f3caa343-5df2-4d55-bf65-fad1d8e6df3f" name="Project">
+</folder>
+<preference-set idref="f3caa343-5df2-4d55-bf65-fad1d8e6df3f">
+  <boolean id="configured">1</boolean>
+</preference-set>
+</project>

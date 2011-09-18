@@ -1,0 +1,13 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "script", 
+  "value": [
+    "<script>", 
+    "\t[[%tabstop:!@#_currentPos!@#_anchor]]", 
+    "</script>"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

@@ -1,0 +1,19 @@
+{
+  "keyboard_shortcut": "Ctrl+Return", 
+  "name": "Run File", 
+  "language": "JavaScript", 
+  "trigger_enabled": false, 
+  "value": [
+    "/**", 
+    " * Runs the current file as-in in the main Flash window", 
+    " * Keyboard shortcut: CTRL+Enter", 
+    " */", 
+    "xjsfl.shortcuts.runFile();"
+  ], 
+  "trigger": "trigger_postopen", 
+  "rank": 100, 
+  "version": "1.0.7", 
+  "async": false, 
+  "type": "macro", 
+  "icon": "chrome://famfamfamsilk/skin/icons/page_white_go.png"
+}

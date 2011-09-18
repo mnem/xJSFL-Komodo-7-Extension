@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "dialog", 
+  "value": [
+    "<dialog title=\"[[%tabstop:Title]]\" buttons=\"[[%tabstop:accept,cancel!@#_currentPos!@#_anchor]]\">\n\t\n\t[[%tabstop:]]\n\t\n</dialog>"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

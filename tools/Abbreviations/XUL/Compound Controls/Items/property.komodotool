@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "property", 
+  "value": [
+    "<property id=\"[[%tabstop:property]]\" />!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

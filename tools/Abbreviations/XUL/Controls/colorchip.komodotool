@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "colorchip", 
+  "value": [
+    "<colorchip class=\"control\" id=\"[[%tabstop:id]]\" color=\"#[[%tabstop:FFF!@#_anchorFFF!@#_currentPos]]\" format=\"[[%tabstop:hex]]\" width=\"[[%tabstop:100]]\" />[[%tabstop:]]"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}
