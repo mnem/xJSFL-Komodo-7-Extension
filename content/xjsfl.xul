@@ -9,13 +9,14 @@
 	<script type="application/x-javascript" src="chrome://xjsfl/content/xjsfl.js" />
 
 	<commandset id="allcommands">
-		<command id="Tasks:HelloWorld" oncommand="alert('Hello Dave');"/>
 		<command id="Tasks:copyJSFLURI" oncommand="xjsfl.tools.copyViewURI()"/>
 	</commandset>
 
+	<!--
 	<menupopup id="popup_tools">
 		<menuitem id="menu_xjsfl" label="xJSFL" observes="Tasks:HelloWorld" class="menu-iconic-wide"/>
 	</menupopup>
+	-->
 
 	<menupopup id="tabContextMenu">
 		<menuseparator id="buffertab-context-sep-tabtools" insertafter="buffertab-context-properties" />
