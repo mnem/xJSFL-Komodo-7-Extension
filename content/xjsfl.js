@@ -331,7 +331,8 @@ xjsfl =
 					}
 
 				// ...if not, throw the user back to preferences
-					alert('The file(s) cannot be executed as the xJSFL installation path is not set in Preferences.\n\nGo to Preferences > Languages > JSFL > xJSFL to set the path.');
+					alert('This macro needs to know the location of your xJSFL installation folder in order to run.\n\nPlease go to Preferences > Languages > JSFL > xJSFL and update the path.');
+					ko.commands.doCommand('cmd_editPrefs')
 					return false;
 			}
 
