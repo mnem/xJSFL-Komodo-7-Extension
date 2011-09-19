@@ -67,7 +67,7 @@
 			// test that the location is valid
 				var koFileEx = Components.classes["@activestate.com/koFileEx;1"].createInstance(Components.interfaces.koIFileEx);
 				koFileEx.path = path + '/core/jsfl/libraries/xjsfl.jsfl';
-				if( ! koFileEx.exists() )
+				if( ! koFileEx.exists )
 				{
 					alert('The selected folder is not an xJSFL installation folder');
 					return false;
