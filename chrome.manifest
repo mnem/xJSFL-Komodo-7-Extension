@@ -1,4 +1,3 @@
-content		jsflpref								content/pref/
 content		xjsfl									content/
 
 overlay		chrome://komodo/content/komodo.xul		chrome://xjsfl/content/xjsfl.xul
