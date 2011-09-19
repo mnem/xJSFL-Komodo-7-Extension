@@ -5,7 +5,7 @@
 
         <em:id>xjsfl@xjsfl.com</em:id>
         <em:name>xJSFL</em:name>
-        <em:version>0.1</em:version>
+        <em:version>0.2</em:version>
         <em:description>Tools, settings and language files for the Adobe Flash JSFL language and xJSFL framework</em:description>
         <em:creator>Dave Stewart</em:creator>
         <em:homepageURL>http://www.xjsfl.com/support/setup/komodo/xjsfl-extension</em:homepageURL>
@@ -13,7 +13,6 @@
 		<em:xiconURL>chrome://xjsfl/skin/xjsfl.png</em:xiconURL>
 
         <em:type>2</em:type> <!-- type=extension -->
-
         <em:targetApplication>
             <Description>
                 <!-- Komodo IDE's uuid -->
