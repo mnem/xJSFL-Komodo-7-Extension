@@ -35,8 +35,8 @@ TextFile = function(pathOrURI, content)
 		}
 
 	// constructor
-		this.koFileEx = Components.classes["@activestate.com/koFileEx;1"].createInstance(Components.interfaces.koIFileEx);
-		this.koFileEx[ pathOrURI.indexOf('file:///')  == 0 ? 'URI' : 'path'] = pathOrURI;
+		this.koFileEx		= Components.classes["@activestate.com/koFileEx;1"].createInstance(Components.interfaces.koIFileEx);
+		this.koFileEx.path	= ko.uriparse.URIToPath(pathOrURI);
 
 	// variables
 
@@ -85,6 +85,11 @@ xjsfl =
 
 		prefs:
 		{
+			/**
+			 * Gets a string preference
+			 * @param	{String}	name
+			 * @returns	{String}
+			 */
 			get:function(name)
 			{
 				if (xjsfl.objects.prefs.hasStringPref(name))
@@ -94,6 +99,12 @@ xjsfl =
 				return null;
 			},
 
+			/**
+			 * Sets a string preference
+			 * @param	{String}	name
+			 * @param	{String}	value
+			 * @returns	{Boolean}
+			 */
 			set:function(name, value)
 			{
 				return xjsfl.objects.prefs.setStringPref(name, value);
@@ -117,7 +128,7 @@ xjsfl =
 			},
 
 			/**
-			 * Auto-size code completion items box
+			 * Sets the size of the code completion items box to 20
 			 */
 			resizeAutocomplete:function()
 			{
@@ -138,6 +149,7 @@ xjsfl =
 		{
 			/**
 			 * Get the current view;
+			 * @returns		{View}
 			 */
 			get current()
 			{
@@ -146,7 +158,7 @@ xjsfl =
 
 			/**
 			 * Get all the views in the correct order, so the first tab can be run
-			 * @returns {Array}
+			 * @returns {Array}	An array of all open Komodo views
 			 */
 			get all()
 			{
@@ -193,6 +205,11 @@ xjsfl =
 					return orderedViews;
 			},
 
+			/**
+			 * Saves the view, and prompts for a new filename if not yet saved
+			 * @param	{View}	view	A Komodo view
+			 * @returns	{Boolean}			A boolean indicating if the file was successfully saved or not
+			 */
 			save:function(view)
 			{
 				// variables
@@ -238,15 +255,20 @@ xjsfl =
 		{
 			/**
 			 * Runs a file or URI using the local filesystem
+			 * @param	{String}	pathOrURI
 			 */
 			run:function(pathOrURI)
 			{
 				var file	= xjsfl.objects.localFile;
 				file.initWithPath(ko.uriparse.URIToPath(pathOrURI));
 				file.launch();
-				file.exists
 			},
 
+			/**
+			 * Shortcut function to determine if a file exists
+			 * @param	{String}	pathOrURI	The path or URI of the file
+			 * @returns	{Boolean}				true / false
+			 */
 			exists:function(pathOrURI)
 			{
 				var file	= xjsfl.objects.file;
@@ -270,41 +292,47 @@ xjsfl =
 			},
 
 			/**
-			 * Runs the uri using the xJSFL file/exec load process
+			 * Runs a JSFL file via the xJSFL file/run load process
+			 *
+			 * 1 - Saves the URI of the file to run to a text file
+			 * 2 - launches the run/<type>.jsfl file
+			 * 3 - that file reads in the URI and does something with it
+			 *
+			 * @param	{String}	uri		The URI of the file to run
+			 * @param	{String}	type	The type of file to run; valid values are "lib" or "xul"
 			 */
 			run: function(uri, type)
 			{
-				//alert('about to ' +type+ ':' + uri)
+				// get xjsflPath
+					var xjsflPath = xjsfl.prefs.get('xjsflPath');
 
-				// get root
-					var root		= xjsfl.prefs.get('xjsflPath');
-					if(root)
+				// run the file if root xjsflPath is defined...
+					if(xjsflPath)
 					{
 						// xJSFL root URI
-							var xjsflURI	= xjsfl.jsfl.getURI(root);
+							var xjsflURI	= xjsfl.jsfl.getURI(xjsflPath);
 
 						// commands
-							var runURI		= xjsflURI + '/core/jsfl/run/' +type+ '.jsfl';
-							var fileURI		= xjsflURI + '/core/jsfl/run/uri.jsfl';
-							var fileJSFL	= 'uri = "' +uri+ '";';
+							var jsflURI		= xjsflURI + '/core/jsfl/run/' +type+ '.jsfl';
+							var textURI		= xjsflURI + '/core/jsfl/run/uri.txt';
 
 						// check run file exists
-							if(xjsfl.file.exists(runURI))
+							if(xjsfl.file.exists(jsflURI))
 							{
-								// write the URI to the uri file
-									new TextFile(fileURI).write(fileJSFL);
+								// write the URI to the text file
+									new TextFile(textURI).write(uri);
 
 								// run the run file
-									xjsfl.file.run(runURI);
+									xjsfl.file.run(jsflURI);
 
-								// returnas
+								// return
 									return true;
 							}
 					}
 
-				// alert user
-					alert('The file(s) cannot be executed as the xJSFL installation path is not set in Preferences.\n\nGo to Preferences > Languages > JSFL to set the path.');
-
+				// ...if not, throw the user back to preferences
+					alert('The file(s) cannot be executed as the xJSFL installation path is not set in Preferences.\n\nGo to Preferences > Languages > JSFL > xJSFL to set the path.');
+					return false;
 			}
 
 		},
@@ -318,12 +346,14 @@ xjsfl =
 			{
 				// variables
 					var view	= ko.views.manager.currentView;
-					var uri		= view.koDoc.file.URI;
 					var saved	= xjsfl.views.save(view)
 
 				// variables
 					if(saved)
 					{
+						// variables
+							var uri		= view.koDoc.file.URI;
+
 						// check for XUL dialog
 							if(/\.(xml|xul)$/.test(uri))
 							{
@@ -331,20 +361,14 @@ xjsfl =
 								{
 									xjsfl.jsfl.run(uri, 'xul');
 								}
-								return true;
 							}
 
 						// otherwise, just run the file
-							xjsfl.file.run(uri);
+							else
+							{
+								xjsfl.file.run(uri);
+							}
 					}
-				try
-				{
-				}
-				catch(err)
-				{
-					alert('File not yet saved');
-				}
-
 			},
 
 			runProject:function()
@@ -353,7 +377,7 @@ xjsfl =
 					var views 		= xjsfl.views.all;
 					var firstView	= null;
 
-				// loop through and save, grabbing first JSFL document
+				// loop through views and save, grabbing first JSFL document
 					for(var i = 0; i < views.length; i++)
 					{
 						// save document
