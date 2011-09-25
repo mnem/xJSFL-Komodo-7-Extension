@@ -1,0 +1,11 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "get", 
+  "value": [
+    "get [[%tabstop1:property]](){ return this.[[%tabstop1]]; }", 
+    "[[%tabstop:!@#_currentPos!@#_anchor]]"
+  ], 
+  "set_selection": "true", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

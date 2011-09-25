@@ -1,0 +1,19 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "function", 
+  "value": [
+    "/**", 
+    " * Function [[%tabstop1:name]]", 
+    " * @param\t{type}\t[[%tabstop2:param]]", 
+    " * @returns\t{type}\t", 
+    " */", 
+    "function [[%tabstop1]]([[%tabstop2]])", 
+    "{", 
+    "\t[[%tabstop:]]", 
+    "}!@#_currentPos!@#_anchor"
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

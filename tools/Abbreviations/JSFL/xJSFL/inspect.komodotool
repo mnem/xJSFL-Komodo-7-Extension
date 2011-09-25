@@ -2,7 +2,7 @@
   "keyboard_shortcut": "", 
   "name": "inspect", 
   "value": [
-    "Output.inspect([[%tabstop1:object]], [[%tabstop2:5]], '[[%tabstop3:Debug]]');\n\n[[%tabstop:]]!@#_currentPos!@#_anchor"
+    "Output.inspect([[%tabstop1:this!@#_currentPos!@#_anchor]], [[%tabstop2:3]], '[[%tabstop3:Debug]]');\n\n[[%tabstop:]]"
   ], 
   "set_selection": "true", 
   "version": "1.0.7", 

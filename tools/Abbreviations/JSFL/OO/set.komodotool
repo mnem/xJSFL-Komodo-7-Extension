@@ -1,0 +1,18 @@
+{
+  "keyboard_shortcut": "", 
+  "name": "set", 
+  "value": [
+    "/**", 
+    " * Set the [[%tabstop1:property]] of the object!@#_currentPos!@#_anchor", 
+    " * @type {[[%tabstop:]]}", 
+    " */", 
+    "set [[%tabstop1]]([[%tabstop2:value]])", 
+    "{", 
+    "\tthis.[[%tabstop1]] = [[%tabstop2]];", 
+    "\t[[%tabstop:]]", 
+    "}"
+  ], 
+  "set_selection": "true", 
+  "type": "snippet", 
+  "indent_relative": "true"
+}

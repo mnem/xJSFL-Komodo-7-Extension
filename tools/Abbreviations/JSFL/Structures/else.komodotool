@@ -1,8 +1,8 @@
 {
   "keyboard_shortcut": "", 
-  "name": "init", 
+  "name": "else", 
   "value": [
-    "xjsfl!@#_currentPos!@#_anchor.init(this);\n\n[[%tabstop:]]"
+    "else\n{\n\t[[%tabstop:// do something else]]\n}\n[[%tabstop:]]!@#_currentPos!@#_anchor"
   ], 
   "set_selection": "true", 
   "version": "1.0.7", 

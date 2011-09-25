@@ -1,8 +1,10 @@
 {
   "keyboard_shortcut": "", 
-  "name": "init", 
+  "name": "case", 
   "value": [
-    "xjsfl!@#_currentPos!@#_anchor.init(this);\n\n[[%tabstop:]]"
+    "case [[%tabstop:state]]:\n\t[[%tabstop:// code...!@#_currentPos!@#_anchor]]\nbreak;", 
+    "", 
+    "[[%tabstop:]]"
   ], 
   "set_selection": "true", 
   "version": "1.0.7", 

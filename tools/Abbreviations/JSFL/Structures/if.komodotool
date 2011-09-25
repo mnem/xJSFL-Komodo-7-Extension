@@ -2,7 +2,8 @@
   "keyboard_shortcut": "", 
   "name": "if", 
   "value": [
-    "if([[%tabstop:condition]])\n{\n\t[[%tabstop:// do something]]\n}\nelse\n{\n\t[[%tabstop:// do something else!@#_currentPos!@#_anchor]]\n}"
+    "if([[%tabstop:condition]])\n{\n\t[[%tabstop:// do something]]\n}", 
+    "[[%tabstop:]]!@#_currentPos!@#_anchor"
   ], 
   "set_selection": "true", 
   "version": "1.0.7", 

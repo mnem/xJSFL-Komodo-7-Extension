@@ -1,11 +1,11 @@
 {
-  "keyboard_shortcut": "Ctrl+/, Ctrl+/",
-  "name": "com",
+  "keyboard_shortcut": "Ctrl+/, Ctrl+/", 
+  "name": "com", 
   "value": [
     "// --------------------------------------------------------------------------------\n// [[%tabstop:comment]]\n\n\t[[%tabstop:]]!@#_currentPos!@#_anchor"
-  ],
-  "set_selection": "true",
-  "version": "1.0.7",
-  "type": "snippet",
+  ], 
+  "set_selection": "true", 
+  "version": "1.0.7", 
+  "type": "snippet", 
   "indent_relative": "true"
 }
