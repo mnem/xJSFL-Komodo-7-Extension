@@ -1,57 +1,4 @@
 /**
- * TextFile object - reads and writes text files to disk
- */
-TextFile = function(pathOrURI, content)
-{
-	// methods
-		this.read = function()
-		{
-			this.koFileEx.open("r");
-			var data = this.koFileEx.readfile();
-			this.koFileEx.close();
-			return data;
-		}
-
-		this.write = function(data, append)
-		{
-			this.koFileEx.open(append ? 'a' : 'w');
-			this.koFileEx.puts(data);
-			this.koFileEx.close();
-			return true
-		}
-
-		this.run = function()
-		{
-			var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-			file.initWithPath(this.koFileEx.path);
-			return file.launch();
-		}
-
-		this.__defineGetter__('exists', function(){ return this.koFileEx.exists; } );
-
-		this.toString = function()
-		{
-			return '[function TextFile path="' +this.koFileEx.path+ '"]';
-		}
-
-	// constructor
-		this.koFileEx		= Components.classes["@activestate.com/koFileEx;1"].createInstance(Components.interfaces.koIFileEx);
-		this.koFileEx.path	= ko.uriparse.URIToPath(pathOrURI);
-
-	// variables
-
-	// write to the file if content is supplied
-		if(content)
-		{
-			this.write(content);
-		}
-
-	// return
-		return this;
-
-}
-
-/**
  * xjsfl - library of functions needed to publish JSFL files
  */
 xjsfl =
@@ -60,12 +7,90 @@ xjsfl =
 	// --------------------------------------------------------------------------------
 	// onLoad
 
-		onLoad:function(event)
+		
+	// ----------------------------------------------------------------------------------------------------
+	// Events
+
+		events:
 		{
-			//commandOutput('> xJSFL: initialised');
-			window.addEventListener('current_view_changed', xjsfl.tools.resizeAutocomplete, false);
-			window.addEventListener('view_opened ', xjsfl.tools.resizeAutocomplete, false);
+			
+			onLoad:function(event)
+			{
+				// debug
+					//commandOutput('> xJSFL: initialised');
+	
+				// auto-size autocomplete box
+					window.addEventListener('current_view_changed', xjsfl.tools.resizeAutocomplete, false);
+					
+				// set states
+					xjsfl.shortcuts.states.file		= xjsfl.prefs.getBool('xjsflShortcutFile');
+					xjsfl.shortcuts.states.project	= xjsfl.prefs.getBool('xjsflShortcutProject');
+					xjsfl.shortcuts.states.library	= xjsfl.prefs.getBool('xjsflShortcutLibrary');
+					
+				// add listener if keyboard shortcuts are required
+					if(xjsfl.shortcuts.states.file || xjsfl.shortcuts.states.project || xjsfl.shortcuts.states.library)
+					{
+						xjsfl.events.add();
+					}
+			},
+			
+			add:function(type, scope, handler)
+			{
+				this.remove();
+				ko.views.manager.topView.addEventListener('keypress', this.onKeyPress, true);
+			},
+
+			remove:function(type, scope, handler)
+			{
+				if (autocode && autocode.onKeyPress)
+				{
+					ko.views.manager.topView.removeEventListener('keypress', this.onKeyPress, true);
+				}
+			},
+
+			onKeyPress:function(event)
+			{
+				// Only trap when ENTER pressed
+				if (event.keyCode === 13)
+				{
+					// flag state
+						var state = false;
+						
+					// test
+						if(event.altKey && event.shiftKey && event.ctrlKey)
+						{
+							if(xjsfl.shortcuts.states.library)
+							{
+								state = xjsfl.shortcuts.runScriptOnSelectedLibraryItems();
+							}
+						}
+						else if(event.shiftKey && event.ctrlKey)
+						{
+							if(xjsfl.shortcuts.states.project)
+							{
+								state = xjsfl.shortcuts.runProject();
+							}
+						}
+						else if(event.ctrlKey)
+						{
+							if(xjsfl.shortcuts.states.file)
+							{
+								state = xjsfl.shortcuts.runFile();
+							}
+						}
+						
+					// cancel if macros exeute
+						if(state)
+						{
+							event.preventDefault();
+							event.stopPropagation();
+							return true;
+						}
+				}
+			}
+			
 		},
+
 
 	// --------------------------------------------------------------------------------
 	// onLoad
@@ -108,11 +133,19 @@ xjsfl =
 			set:function(name, value)
 			{
 				return xjsfl.objects.prefs.setStringPref(name, value);
-			}
+			},
+			
+			getBool:function(name)
+			{
+				if (xjsfl.objects.prefs.hasBooleanPref(name))
+				{
+					return xjsfl.objects.prefs.getBooleanPref(name);
+				};
+				return false;
+			},
 
 		},
-
-
+		
 	// --------------------------------------------------------------------------------
 	// tools
 
@@ -130,9 +163,10 @@ xjsfl =
 			/**
 			 * Sets the size of the code completion items box to 20
 			 */
-			resizeAutocomplete:function()
+			resizeAutocomplete:function(event)
 			{
-				var view = ko.views.manager.currentView;
+				var view = event.originalTarget;
+				//var view = ko.views.manager.currentView;
 				if (view && view.scimoz)
 				{
 					view.scimoz.autoCMaxHeight = 20;
@@ -263,6 +297,20 @@ xjsfl =
 				file.initWithPath(ko.uriparse.URIToPath(pathOrURI));
 				file.launch();
 			},
+			
+			read:function(pathOrURI)
+			{
+				var file	= Components.classes["@activestate.com/koFileEx;1"].createInstance(Components.interfaces.koIFileEx);
+				file.path	= ko.uriparse.URIToPath(pathOrURI);
+				if(file.exists)
+				{
+					file.open('r');
+					var str = file.readfile();
+					file.close();
+					return str;
+				}
+				return null;
+			},
 
 			/**
 			 * Shortcut function to determine if a file exists
@@ -272,7 +320,7 @@ xjsfl =
 			exists:function(pathOrURI)
 			{
 				var file	= xjsfl.objects.file;
-				file.path	= ko.uriparse.URIToPath(pathOrURI)
+				file.path	= ko.uriparse.URIToPath(pathOrURI);
 				return file.exists;
 			}
 
@@ -313,8 +361,8 @@ xjsfl =
 							var xjsflURI	= xjsfl.jsfl.getURI(xjsflPath);
 
 						// commands
-							var jsflURI		= xjsflURI + '/core/jsfl/run/' +type+ '.jsfl';
-							var textURI		= xjsflURI + '/core/jsfl/run/uri.txt';
+							var jsflURI		= xjsflURI + '/core/run/' +type+ '.jsfl';
+							var textURI		= xjsflURI + '/core/temp/uri.txt';
 
 						// check run file exists
 							if(xjsfl.file.exists(jsflURI))
@@ -331,45 +379,112 @@ xjsfl =
 					}
 
 				// ...if not, throw the user back to preferences
-					alert('This macro needs to know the location of your xJSFL installation folder in order to run.\n\nPlease go to Preferences > Languages > JSFL > xJSFL and update the path.');
+					alert('This macro needs to know the location of your xJSFL installation folder in order to run.\n\nPlease go to Preferences > xJSFL and update the path.');
 					ko.commands.doCommand('cmd_editPrefs')
 					return false;
-			}
+			},
+
+			/**
+			 * Tests a JSFL file, then attempts to read in any catched errors and open the file to the correct line
+			 * 
+			 * @param		{String}		uri		The URI of teh file to test
+			 */
+			test:function(uri)
+			{
+				// get xjsflPath
+					var xjsflPath = xjsfl.prefs.get('xjsflPath');
+					
+				// run the file first
+					if(this.run(uri, 'try'))
+					{
+						function test()
+						{
+							// variables
+								var xjsflURI	= xjsfl.jsfl.getURI(xjsflPath);
+								var errorURI	= xjsflURI + '/core/temp/errors.txt'
+								var error		= xjsfl.file.read(errorURI);
+								
+							// do something with errors
+								if(error)
+								{
+									// variables
+										error			= error.split(/[\r\n]+/);
+										var uri			= error[0];
+										var path		= ko.uriparse.URIToPath(uri);
+										var line		= error[1];
+										var name		= error[2];
+										var message		= error[3];
+												
+									// message
+										var str			= 'The following JavaScript error occurred, at line ' +line+ ' of file "' +uri.split('/').pop()+ '":\n\n';
+										str				+= name + ': ' + message.replace(/'/g, '\'') + '\n';
+										
+									// messages
+										ko.open.URIAtLine(uri, line);
+										if(window['autocode'])
+										{
+											autocode.console.trace('\n' + str);
+										}
+										else
+										{
+										}
+											alert(str);
+								}
+						}
+						// set a small timeout for the error
+						setTimeout(test, 500);
+					}
+			},
 
 		},
-
+		
 	// --------------------------------------------------------------------------------
 	// file
 
 		shortcuts:
 		{
+			states:
+			{
+				file:		false,
+				project:	false,
+				library:	false,
+			},
+			
 			runFile:function()
 			{
 				// variables
 					var view	= ko.views.manager.currentView;
-					var saved	= xjsfl.views.save(view)
-
-				// variables
-					if(saved)
+					var uri		= view.item.url;
+					
+				// execute XUL or JSFL files only
+					if(/\.(jsfl|xul)$/.test(uri))
 					{
-						// variables
-							var uri		= view.koDoc.file.URI;
-
-						// check for XUL dialog
-							if(/\.(xml|xul)$/.test(uri))
-							{
-								if(/<dialog\b/.test(view.scimoz.text))
+						var saved = xjsfl.views.save(view);
+						if(saved)
+						{
+							// check for XUL dialog
+								if(/\.(|xul)$/.test(uri))
 								{
-									xjsfl.jsfl.run(uri, 'xul');
+									if(/<dialog\b/.test(view.scimoz.text))
+									{
+										ko.statusBar.AddMessage('Previewing XUL dialog...', 'xJSFL', 1000);
+										xjsfl.jsfl.run(uri, 'xul');
+										return true;
+									}
 								}
-							}
-
-						// otherwise, just run the file
-							else
-							{
-								xjsfl.file.run(uri);
-							}
+								
+							// otherwise, run JSFL file
+								else
+								{
+									ko.statusBar.AddMessage('Running JSFL script...', 'xJSFL', 1000);
+									xjsfl.file.run(uri);
+									return true;
+								}
+						}
 					}
+					
+				// return
+					return false;
 			},
 
 			runProject:function()
@@ -396,12 +511,17 @@ xjsfl =
 				// run the first view
 					if(firstView)
 					{
+						ko.statusBar.AddMessage('Running xJSFL project...', 'xJSFL', 1000);
 						xjsfl.file.run(firstView.koDoc.file.URI);
+						return true;
 					}
 					else
 					{
-						alert('Cannot run xJSFL project!\n\nAt least one tab needs to be a .jsfl file');
+						ko.statusBar.AddMessage('Cannot run xJSFL project! At least one tab needs to be a .jsfl file', 'xJSFL', 1000, true);
 					}
+					
+				// return
+					return false;
 			},
 
 			runScriptOnSelectedLibraryItems:function()
@@ -413,11 +533,16 @@ xjsfl =
 				// variables
 					if(saved && /.jsfl$/.test(view.koDoc.file.URI))
 					{
+						ko.statusBar.AddMessage('Running JSFL script on selected librray items...', 'xJSFL', 1000);
 						xjsfl.jsfl.run(view.koDoc.file.URI, 'lib');
+						return true;
 					}
+					
+				// return
+					return false;
 			}
 
 		}
 }
 
-window.addEventListener("load", xjsfl.onLoad, false);
+window.addEventListener("load", xjsfl.events.onLoad, false);
