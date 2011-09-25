@@ -1,0 +1,4 @@
+.languageicon[language="JSFL"],
+treechildren::-moz-tree-image(LanguageJSFL) {
+    list-style-image: url("chrome://komodo/skin/images/languages/javascript/javascript_16x16.png");
+    }
