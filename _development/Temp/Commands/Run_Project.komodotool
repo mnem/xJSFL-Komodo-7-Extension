@@ -1,0 +1,19 @@
+{
+  "keyboard_shortcut": "Ctrl+Shift+Return", 
+  "name": "Run Project", 
+  "language": "JavaScript", 
+  "trigger_enabled": 0, 
+  "rank": 100, 
+  "trigger": "trigger_postopen", 
+  "value": [
+    "/**", 
+    " * Saves all open files and then runs the first open JSFL file", 
+    " * Keyboard shortcut: CTRL+SHIFT+Return", 
+    " */", 
+    "xjsfl.shortcuts.runProject();"
+  ], 
+  "version": "1.0.7", 
+  "async": 0, 
+  "type": "macro", 
+  "icon": "chrome://famfamfamsilk/skin/icons/application_go.png"
+}

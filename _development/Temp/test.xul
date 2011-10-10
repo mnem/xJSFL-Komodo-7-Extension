@@ -1,0 +1,12 @@
+<dialog title="Hello world" buttons="accept,cancel">
+	
+	<button class="control" id="button" label="Click me" width="200" flex="1" tabindex="" acceskey="" />
+	
+	<radiogroup class="control" id="options" groupbox="true" tabindex="">
+		<radio label="Foo" selected="" value="Foo" acceskey="" />
+		<radio label="Bar" selected="" value="Bar" acceskey="" />
+		<radio label="Baz" selected="" value="Baz" acceskey="" />
+		
+	</radiogroup>
+	
+</dialog>

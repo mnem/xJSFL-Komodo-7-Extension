@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Copyright (c) 2000-2006 ActiveState Software Inc.
+     See the file LICENSE.txt for licensing information. -->
+
+<!DOCTYPE overlay SYSTEM "chrome://xjsfl/locale/pref.dtd">
+
+<overlay id="xjsflPrefOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<treechildren id="panelChildren">
+		<treeitem id="uiXJSFLMain">
+			<treerow>
+				<treecell class="treecell-indent" url="chrome://xjsfl/content/pref/xjsfl-overlay.xul" label="xJSFL"/>
+			</treerow>
+		</treeitem>
+	</treechildren>
+</overlay>

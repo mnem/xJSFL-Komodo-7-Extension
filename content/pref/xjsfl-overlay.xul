@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE window SYSTEM "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" [
+  <!ENTITY % prefDTD SYSTEM "chrome://komodo/locale/pref/pref.dtd">
+  %prefDTD;
+  <!ENTITY % prefDTD.INTERNAL SYSTEM "chrome://komodo/locale/pref-internal.dtd">
+  %prefDTD.INTERNAL;
+]>
+
+<!-- Copyright (c) 2000-2011 ActiveState Software Inc.
+     See the file LICENSE.txt for licensing information. -->
+
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/global/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/bindings/buttons.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/bindings/widgets.css" type="text/css"?>
+<?xml-stylesheet href="chrome://komodo/skin/bindings/listbox.css" type="text/css"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+
+<?xml-stylesheet href="chrome://komodo/skin/prefs/prefs.css" type="text/css"?>
+
+<window xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      class="kodialog"
+      orient="vertical"
+      onload="PrefXJSFL_OnLoad();">
+
+    <script src="chrome://xtk/content/xtk.js" type="application/x-javascript;version=1.7"/>
+    <script src="chrome://komodo/content/library/logging.js" type="application/x-javascript;version=1.7"/>
+    <script src="chrome://komodo/content/library/dialogs.js" type="application/x-javascript;version=1.7"/>
+    <script src="chrome://komodo/content/library/windowManager.js" type="application/x-javascript;version=1.7"/>
+    <script src="chrome://komodo/content/library/filepickers.js" type="application/x-javascript;version=1.7"/>
+    <script src="chrome://komodo/content/library/uriparse.js" type="application/x-javascript;version=1.7"/>
+    <script src="chrome://komodo/content/pref/koPrefUtils.js" type="application/x-javascript;version=1.7" />
+
+    <script src="xjsfl-pref.js" type="application/x-javascript;version=1.7"/>
+
+    <!-- This main vbox is to ensure *all* the pref widgets are accessible, as it adds a scrollbar when the contents are too long. -->
+
+    <vbox id="jsfl-prefs-vbox" flex="1" class="autoscroll">
+
+		<groupbox orient="vertical" id="installation">
+			<caption label="xJSFL" />
+            <description>Specify the path to your xJSFL installation folder.</description>
+			<hbox align="center">
+				<textbox id="xjsflPath" pref="true" prefstring="xjsflPath" flex="1"/>
+				<button label="Browse..." oncommand="setXJSFLPath();" />
+			</hbox>
+		</groupbox>
+
+
+        <groupbox orient="vertical" id="directories">
+            <caption label="JSFL Directories"/>
+            <description>Specify any directories that you want Komodo to use for autocomplete and calltips. Komodo will recursively scan these directories for information.</description>
+            <pathlist id="jsflExtraPaths"
+                      flex="1"
+                      seltype="multiple"
+                      rows="4"
+                      pref="true"
+                      prefwidget="true"
+                      prefstring="jsflExtraPaths"/>
+        </groupbox>
+
+        <groupbox orient="vertical" id="shortcuts">
+            <caption label="Publishing shortcuts"/>
+            <description>You can associate Flash-style pubishing keyboard shortcuts in Komodo to make your JSFL development easier (requires restart).</description>
+
+			<checkbox id="xjsflShortcutFile" label="Run File (CTRL+Enter)" />
+			<vbox id="boxColumns" class="indented">
+				<description>Runs the current JSFL file, or previews the current XUL file</description>
+			</vbox>
+
+			<checkbox id="xjsflShortcutDebug" label="Debug File (ALT+Enter)" />
+			<vbox id="boxColumns" class="indented">
+				<description>Debugs the current JSFL file, and any subsequent JSFL file loads</description>
+			</vbox>
+
+			<checkbox id="xjsflShortcutProject" label="Run Project (CTRL+SHIFT+Enter)" />
+			<vbox id="boxColumns" class="indented">
+				<description>Saves all open files, and then runs the left-most JSFL file</description>
+			</vbox>
+
+			<checkbox id="xjsflShortcutLibrary" label="Run File on Selected Library Items (CTRL+SHIFT+ALT+Enter)" />
+			<vbox id="boxColumns" class="indented">
+				<description>Runs the current JSFL file on each of the selected Library Items in the Flash Library panel</description>
+			</vbox>
+        </groupbox>
+
+    </vbox>
+
+</window>

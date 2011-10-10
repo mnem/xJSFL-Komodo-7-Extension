@@ -1,0 +1,23 @@
+description,
+groupbox{
+	 /*
+	  padding-top:5px;
+	 */
+}
+
+description{
+	line-height:1.3em;
+}
+
+#shortcuts checkbox{
+	 margin-top:10px;
+}
+
+
+strong{
+	font-weight:bold;
+}
+
+.indented{
+	margin-left:23px;
+}

@@ -2,11 +2,11 @@
   "keyboard_shortcut": "", 
   "name": "for", 
   "value": [
-    "for (var [[%tabstop1:i]] = !@#_currentPos!@#_anchor0; [[%tabstop1]] < [[%tabstop2:item]]s.length; [[%tabstop1]]++)", 
-    "{\n\tvar [[%tabstop2]] = [[%tabstop2]][[[%tabstop1]]];", 
-    "\t[[%tabstop:]]\n}", 
-    "", 
-    ""
+    "for(var [[%tabstop1:i]] = 0; [[%tabstop1]] < [[%tabstop2:item]]s.length; [[%tabstop1]]++)!@#_currentPos!@#_anchor", 
+    "{", 
+    "\tvar [[%tabstop2]] = [[%tabstop2]]s[[[%tabstop1]]];", 
+    "\t[[%tabstop:]]", 
+    "}"
   ], 
   "set_selection": "true", 
   "version": "1.0.7", 

@@ -50,7 +50,7 @@ from codeintel2.lang_javascript import (JavaScriptLexer,
 
 lang = "JSFL"
 log = logging.getLogger("codeintel.jsfl")
-#log.setLevel(logging.DEBUG)
+log.setLevel(logging.DEBUG)
 #makePerformantLogger(log)  # Komodo 7
 
 
@@ -65,6 +65,14 @@ class JSFLLangIntel(JavaScriptLangIntel):
     # add extra paths for codeintel
     extraPathsPrefName = "jsflExtraPaths"
 
+    log.info('TEST BY DAVE')
+
+    # Tell the codeintel database that JSFL completions will use all known jsfl files.
+    def __init__(self, *args, **kwargs):
+        JavaScriptLangIntel.__init__(self, *args, **kwargs)
+        if lang not in self.mgr.db.import_everything_langs:
+            self.mgr.db.import_everything_langs.add(lang)
+
     # Customize the standard library used for JSFL - use the JSFL catalog.
     @property
     def stdlibs(self):
@@ -75,7 +83,6 @@ class JSFLBuffer(JavaScriptBuffer):
 
 class JSFLImportHandler(JavaScriptImportHandler):
     lang = lang
-
 
 class JSFLCILEDriver(JavaScriptCILEDriver):
     lang = lang

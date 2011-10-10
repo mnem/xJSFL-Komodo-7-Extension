@@ -1,0 +1,20 @@
+{
+  "keyboard_shortcut": "Ctrl+Alt+Shift+Return", 
+  "name": "Run Script on Selected Library Items", 
+  "language": "JavaScript", 
+  "trigger_enabled": false, 
+  "value": [
+    "/**", 
+    " * Runs the current file on each of the selected Library Items in the main Flash window", 
+    " * Keyboard shortcut: CTRL+SHIFT+ALT+Return", 
+    " * @version 2.0", 
+    " */", 
+    "xjsfl.shortcuts.runScriptOnSelectedLibraryItems();"
+  ], 
+  "trigger": "trigger_postopen", 
+  "rank": 100, 
+  "version": "1.0.7", 
+  "async": 1, 
+  "type": "macro", 
+  "icon": "chrome://famfamfamsilk/skin/icons/folder_go.png"
+}

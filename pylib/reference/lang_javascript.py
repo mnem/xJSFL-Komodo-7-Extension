@@ -2,6 +2,8 @@
 # Copyright (c) 2006 ActiveState Software Inc.
 # See LICENSE.txt for license details.
 
+# saved from C:\Program Files (x86)\Development\Komodo IDE 7\lib\mozilla\python\komodo\codeintel2\lang_javascript.py
+
 """JavaScript support for Code Intelligence
 
     This is a Language Engine for the Code Intelligence (codeintel) system.
@@ -358,7 +360,7 @@ class JavaScriptLangIntel(CitadelLangIntel,
                     if DEBUG:
                         print "triggering 'javascript-complete-names' at " \
                               "pos: %d" % (last_pos - 2, )
-                                
+
                     return Trigger(self.lang, TRG_FORM_CPLN,
                                    "names", last_pos - 2, implicit,
                                    citdl_expr="".join(reversed(citdl_expr)))
@@ -736,7 +738,7 @@ class JavaScriptBuffer(CitadelBuffer):
 
     def __init__(self, *args, **kwargs):
         CitadelBuffer.__init__(self, *args, **kwargs)
-        
+
         # Encourage the database to pre-scan dirs relevant to completion
         # for this buffer -- because of recursive-dir-include-everything
         # semantics for JavaScript this first-time scan can take a while.
@@ -823,7 +825,7 @@ class JavaScriptImportHandler(ImportHandler):
             path = os.path.join(dirname, names[i])
             if os.path.isdir(path):
                 pass
-            elif os.path.splitext(names[i])[1] in (".js",):
+            elif os.path.splitext(names[i])[1] in (".jsfl",):
                 #XXX The list of extensions should be settable on
                 #    the ImportHandler and Komodo should set whatever is
                 #    set in prefs.
@@ -885,7 +887,7 @@ class JavaScriptImportHandler(ImportHandler):
         importables = {}
         for name in nondirs:
             base, ext = splitext(name)
-            if ext != ".js":
+            if ext != ".jsfl":
                 continue
             if base in dirs:
                 importables[base] = (name, None, True)
@@ -958,7 +960,7 @@ class JavaScriptCILEDriver(CILEDriver):
 
     def scan_csl_tokens(self, file_elem, blob_name, csl_tokens):
         """csl_tokens are pure JavaScript UDL tokens.
-        
+
         There is no need to parse out other types of tokens.
         """
 
@@ -1733,7 +1735,7 @@ class JavaScriptCiler:
         self.JS_CILE_STYLES = self.JS_STRINGS + \
                               (self.JS_WORD, self.JS_IDENTIFIER,
                                self.JS_OPERATOR, self.JS_NUMBER)
-                              
+
 
     # Allows to change styles used by scanner
     # Needed for UDL languages etc... where the style bits are different
@@ -2622,7 +2624,7 @@ class JavaScriptCiler:
     ##
     # Read everything up to and including the matching close paren
     # @param styles list
-    # @param text list 
+    # @param text list
     # @param p int position in the styles and text list
     # @param paren string type of parenthesis
     def _getParenArguments(self, styles, text, p, paren=None):
@@ -2721,7 +2723,7 @@ class JavaScriptCiler:
     ##
     # Grab all necessary citdl information from the given text
     # @param styles list
-    # @param text list 
+    # @param text list
     # @param p int position in the styles and text list
     # @return the citdl list and the position after the last item swallowed
     def _getCitdlTypeInfo(self, styles, text, p):
@@ -2878,7 +2880,7 @@ class JavaScriptCiler:
         # this.myname = new function(x, y) {
         # var num = mf.field1;
         # names = { "myname": 1, "yourname": 2 }
-        
+
         log.debug("_getVariableDetail: namelist: %r, text:%r", namelist, text[p:])
 
         if len(namelist) > 1 and "prototype" in namelist:
@@ -3036,7 +3038,7 @@ class JavaScriptCiler:
             # could not be determined (i.e. foo[myname] = 1), as myname is
             # an unknown.
             unknown_array_namelist = False
- 
+
             if p >= len(styles) or text[p] in ",;":
                 # It's a uninitialized variable?
                 already_known = False
@@ -3412,7 +3414,7 @@ class JavaScriptCiler:
         # Ensure the variables are not already known as member variables.
         d_members = getattr(jsother, "members", {})
         d_variables = getattr(jsother, "variables", {})
-        
+
         for name, jsobj in d_variables.items():
             if name in d_members:
                 # Decide which one to keep then, remove the variable and then
@@ -3436,7 +3438,7 @@ class JavaScriptCiler:
                 scope = self._findOrCreateScope(namelist, ('variables', 'classes', 'functions'))
             v = JSVariable(propertyname, scope, self.lineno, self.depth)
             scope.addVariable(propertyname, value=v)
-            
+
     def _handleYAHOOExtension(self, styles, text, p):
         # text example:
         #   ['(', 'Dog', ',', 'Mammal', ',', '{', ')']
@@ -3714,7 +3716,7 @@ class JavaScriptCiler:
 
     def token_next(self, style, text, start_column, start_line, **other_args):
         """Loops over the styles in the document and stores important info.
-        
+
         When enough info is gathered, will perform a call to analyze the code
         and generate subsequent language structures. These language structures
         will later be used to generate XML output for the document."""
@@ -3949,4 +3951,3 @@ def register(mgr):
                       import_handler_class=JavaScriptImportHandler,
                       cile_driver_class=JavaScriptCILEDriver,
                       is_cpln_lang=True)
-
