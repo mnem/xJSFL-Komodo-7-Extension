@@ -53,11 +53,12 @@ log = logging.getLogger("codeintel.jsfl")
 log.setLevel(logging.DEBUG)
 #makePerformantLogger(log)  # Komodo 7
 
-
 #---- language support
 
 class JSFLLexer(JavaScriptLexer):
     lang = lang
+    def __init__(self, mgr):
+        JavaScriptLexer.__init__(self, mgr)
 
 class JSFLLangIntel(JavaScriptLangIntel):
     lang = lang
@@ -82,10 +83,59 @@ class JSFLBuffer(JavaScriptBuffer):
     lang = lang
 
 class JSFLImportHandler(JavaScriptImportHandler):
-    lang = lang
+    def find_importables_in_dir(self, dir):
+        """See citadel.py::ImportHandler.find_importables_in_dir() for
+        details.
+
+        Importables for JavaScript look like this:
+            {"foo.js":  ("foo.js", None, False),
+             "somedir": (None,     None, True)}
+
+        TODO: log the fs-stat'ing a la codeintel.db logging.
+        """
+        from os.path import join, isdir, splitext
+        import os
+        if dir == "<Unsaved>":
+            #TODO: stop these getting in here.
+            return {}
+
+        #TODO: log the fs-stat'ing a la codeintel.db logging.
+        try:
+            names = os.listdir(dir)
+        except OSError, ex:
+            return {}
+        dirs, nondirs = set(), set()
+        for name in names:
+            try:
+                if isdir(join(dir, name)):
+                    dirs.add(name)
+                else:
+                    nondirs.add(name)
+            except UnicodeDecodeError:
+                # Hit a filename that cannot be encoded in the default encoding.
+                # Just skip it. (Bug 82268)
+                pass
+
+        importables = {}
+        for name in nondirs:
+            base, ext = splitext(name)
+            if ext != ".jsfl":
+                continue
+            if base in dirs:
+                importables[base] = (name, None, True)
+                dirs.remove(base)
+            else:
+                importables[base] = (name, None, False)
+        for name in dirs:
+            importables[name] = (None, None, True)
+
+        return importables
 
 class JSFLCILEDriver(JavaScriptCILEDriver):
     lang = lang
+
+    def __init__(self, *args, **kwargs):
+        JavaScriptCILEDriver.__init__(self, *args, **kwargs)
 
 #---- registration
 
