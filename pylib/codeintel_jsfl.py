@@ -77,7 +77,9 @@ class JSFLLangIntel(JavaScriptLangIntel):
     # Customize the standard library used for JSFL - use the JSFL catalog.
     @property
     def stdlibs(self):
-        return [self.mgr.db.get_catalog_lib(lang, ["jsfl"])]
+        catalog_lib = self.mgr.db.get_catalog_lib(lang, ["jsfl"])
+        js_lib = self.mgr.db.get_stdlib('JavaScript')
+        return [catalog_lib, js_lib]
 
 class JSFLBuffer(JavaScriptBuffer):
     lang = lang
